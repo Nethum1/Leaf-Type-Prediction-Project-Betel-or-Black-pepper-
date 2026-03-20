@@ -25,7 +25,12 @@ from tensorflow.keras.optimizers import Adam
 # =====================================================
 # 2. DATASET
 # =====================================================
-data = []
+df = pd.read_csv("leaf_dataset.csv")
+df["Ratio"] = df["Length"] / df["Breadth"]
+
+X = df[["Length", "Breadth", "Ratio"]]
+y = df["Label"]
+
 
 # =====================================================
 # 3. CREATE DATAFRAME & FEATURES
